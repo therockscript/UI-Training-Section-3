@@ -7,8 +7,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AppName from '../Header/AppName';
 import MenuJson from './Menu.json';
-import { Error, Star, Schedule } from '@material-ui/icons';
-
+import { Error, Star, Schedule, Today, Done, Delete } from '@material-ui/icons';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +55,9 @@ function LeftNavigation() {
                     {menu.icon === "Star" && <Star></Star>}
                     {menu.icon === "Error" && <Error></Error>}
                     {menu.icon === "Schedule" && <Schedule></Schedule>}
+                    {menu.icon === "Today" && <Today></Today>}
+                    {menu.icon === "Done" && <Done></Done>}
+                    {menu.icon === "Delete" && <Delete></Delete>}
                 </ListItemIcon>
                 <ListItemText primary={menu.text} />
               </ListItem>

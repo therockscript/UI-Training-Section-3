@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import Grid from '@material-ui/core/Grid';
 import { Star, Error } from '@material-ui/icons';
+import Chip from '@material-ui/core/Chip';
+import labels from './List.json';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
     },
     taskDetails: {
         textAlign: "left"
+    },
+    chip: {
+        backgroundColor: "lightgreen",
+        marginTop:"0.4rem"
+      
     }
   }));
 
@@ -22,6 +29,7 @@ function ListItem(props) {
     }
 
     return <Paper className={classes.root} variant="outlined" elevation={3}  >
+
         <Grid container>
             <Grid item sm={1}>
                 <Radio
@@ -34,8 +42,20 @@ function ListItem(props) {
             </Grid>
             <Grid item sm={9} className={classes.taskDetails}>
                 <div>{props.task.title}</div>
-                <div>{props.task.notes}</div>
+                <div>{props.task.notes}</div> 
+               {/* <Chip label={props.task.labels} className={classes.chip}/>*/} 
                 
+                <div>
+                       {
+                           labels.map((labels) => {
+                               return <Chip label={props.task.labels} task={labels} className={classes.chip}/> 
+
+                           })
+                       }
+               </div>
+
+
+
             </Grid>
             <Grid item sm={2}>
                 <Error></Error>

@@ -10,5 +10,17 @@
     {
         "text": "Scheduled",
         "icon": "Schedule"
+    },
+    {
+        "text": "Today",
+        "icon": "Today"
+    },
+     {
+        "text": "Done",
+        "icon": "Done"
+    },
+    {
+        "text": "Deleted",
+        "icon": "Delete"
     }
 ]
