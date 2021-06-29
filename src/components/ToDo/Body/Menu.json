@@ -1,0 +1,14 @@
+[
+    {
+        "text": "Starred",
+        "icon": "Star"
+    },
+    {
+        "text": "Priority",
+        "icon": "Error"
+    },
+    {
+        "text": "Scheduled",
+        "icon": "Schedule"
+    }
+]

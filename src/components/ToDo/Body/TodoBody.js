@@ -6,10 +6,10 @@ function ToDoBody() {
 
     return <div>
         <Grid container>
-            <Grid item sm={3}>
+            <Grid item sm={2}>
                 <LeftNavigation></LeftNavigation>
             </Grid>
-            <Grid item sm={9}>
+            <Grid item sm={10}>
                 <List></List>
             </Grid>
         </Grid>

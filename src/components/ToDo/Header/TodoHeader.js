@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
       background: 'white',
       marginTop: '15px',
       paddingBottom: '15px',
-      borderBottom: "1px solid grey"
+      borderBottom: "0px solid grey"
     }
 }));
 
@@ -16,12 +16,15 @@ function ToDoHeader() {
     const style = useStyles();
 
     return <div className={style.root}>
-        <Grid container>
-            <Grid item sm={2}>
-                <AppName />
+        <Grid container spacing={3}> 
+            <Grid item sm={3} >
+
             </Grid>
-            <Grid item sm={10}>
+            <Grid item sm={6} >
                 <TodoSearch />
+            </Grid>
+            <Grid item sm={3} >
+
             </Grid>
         </Grid>
     </div>
