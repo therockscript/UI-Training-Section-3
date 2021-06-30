@@ -41,10 +41,10 @@ function ListItem(props) {
             </Grid>
             <Grid item sm={9} className={classes.taskDetails}>
                 <div>{props.task.title}</div>
-                <div>{props.task.notes}</div> 
+                <div>{props.task.description}</div> 
                 <div>
                        {
-                           props.task.labels.map((label) => {
+                           props?.task?.labels?.map((label) => {
                                return <Chip label={label} className={classes.chip}/> 
                            })
                        }
