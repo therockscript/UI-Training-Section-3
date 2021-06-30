@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Task 1",
+        "notes": "Create demo react App",
+        "startDate": "2021-05-01",
+        "endDate": "2021-05-31",
+        "priority": true,
+        "starred": true,
+        "completed": false,
+        "labels": ["UI", "React"]
+    },
+    {
+        "title": "Task 2",
+        "notes": "Add react Redux",
+        "startDate": "2021-06-01",
+        "endDate": "2021-06-11",
+        "priority": true,
+        "starred": true,
+        "completed": false,
+        "labels": ["UI", "React", "Redux"]
+    },
+    {
+        "title": "Task 3",
+        "notes": "Add react routes",
+        "startDate": "2021-06-12",
+        "endDate": "2021-06-22",
+        "priority": true,
+        "starred": true,
+        "completed": false,
+        "labels": ["UI", "React", "Routes"]
+    }   
+]

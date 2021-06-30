@@ -8,6 +8,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AppName from '../Header/AppName';
 import MenuJson from './Menu.json';
 import { Error, Star, Schedule, Today, Done, Delete } from '@material-ui/icons';
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.default,
       padding: theme.spacing(3),
     },
+    button: {
+    margin: theme.spacing(1),
+  }
 }));
 
 function LeftNavigation() {
@@ -72,6 +78,7 @@ function LeftNavigation() {
           ))} */}
         </List>
       </Drawer>
+
     </div>
 }
 
