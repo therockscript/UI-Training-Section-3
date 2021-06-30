@@ -4,7 +4,6 @@ import Radio from '@material-ui/core/Radio';
 import Grid from '@material-ui/core/Grid';
 import { Star, Error } from '@material-ui/icons';
 import Chip from '@material-ui/core/Chip';
-import labels from './List.json';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     },
     chip: {
         backgroundColor: "lightgreen",
-        marginTop:"0.4rem"
-      
+        marginTop:"0.4rem",
+        marginRight: "4px"
     }
   }));
 
@@ -43,13 +42,10 @@ function ListItem(props) {
             <Grid item sm={9} className={classes.taskDetails}>
                 <div>{props.task.title}</div>
                 <div>{props.task.notes}</div> 
-               {/* <Chip label={props.task.labels} className={classes.chip}/>*/} 
-                
                 <div>
                        {
-                           labels.map((labels) => {
-                               return <Chip label={props.task.labels} task={labels} className={classes.chip}/> 
-
+                           props.task.labels.map((label) => {
+                               return <Chip label={label} className={classes.chip}/> 
                            })
                        }
                </div>
