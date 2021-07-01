@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import { Star, Error } from '@material-ui/icons';
 import Chip from '@material-ui/core/Chip';
 
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
       padding: "20px",
@@ -21,13 +23,17 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 function ListItem(props) {
-    const classes = useStyles();
+ 
+  const classes = useStyles();
 
+     
     function handleRadioChange() {
 
     }
 
-    return <Paper className={classes.root} variant="outlined" elevation={3}  >
+
+    return <div>         
+    <Paper className={classes.root} variant="outlined" elevation={3}  >
 
         <Grid container>
             <Grid item sm={1}>
@@ -59,6 +65,8 @@ function ListItem(props) {
             </Grid>
         </Grid>
         </Paper>
+        
+        </div>
 }
 
 export default ListItem;
