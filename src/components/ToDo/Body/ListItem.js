@@ -1,11 +1,13 @@
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import Radio from '@material-ui/core/Radio';
+import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import { Star, Error } from '@material-ui/icons';
 import Chip from '@material-ui/core/Chip';
-
-
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { useDispatch } from 'react-redux';
+import { deleteTaskAction, updateTaskStatusAction } from '../../../store/slices/todoSlice';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,11 +26,20 @@ const useStyles = makeStyles((theme) => ({
 
 function ListItem(props) {
  
-  const classes = useStyles();
-
+    const classes = useStyles();
+    const dispatch = useDispatch();
      
     function handleRadioChange() {
 
+    }
+
+    function onDeleteTask() {
+        dispatch(deleteTaskAction(props.task._id));
+    }
+
+    function onCheckboxClick(event) {
+        const value = event.target.checked;
+        dispatch(updateTaskStatusAction(props.task._id, value));
     }
 
 
@@ -37,8 +48,9 @@ function ListItem(props) {
 
         <Grid container>
             <Grid item sm={1}>
-                <Radio
-                    checked={true}
+                <Checkbox
+                    checked={props.task.completed}
+                    onClick={onCheckboxClick}
                     onChange={handleRadioChange}
                     value="a"
                     name="radio-button-demo"
@@ -46,6 +58,7 @@ function ListItem(props) {
                 />
             </Grid>
             <Grid item sm={9} className={classes.taskDetails}>
+                {/* <div>{props.task._id}</div> */}
                 <div>{props.task.title}</div>
                 <div>{props.task.description}</div> 
                 <div>
@@ -61,7 +74,10 @@ function ListItem(props) {
             </Grid>
             <Grid item sm={2}>
                 <Error></Error>
-                <Star></Star>    
+                <Star></Star>
+                <IconButton aria-label="delete" color="secondary" onClick={onDeleteTask}>
+                    <DeleteIcon />
+                </IconButton>  
             </Grid>
         </Grid>
         </Paper>

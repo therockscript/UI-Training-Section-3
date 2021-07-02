@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import TaskList from '../../data/List.json';
-import { getTaskList } from '../../api/API';
+import { getTaskList, addTask, deleteTask, updateTaskStatus } from '../../api/API';
 
 export const getTaskListAction = () => async dispatch => {
   try {
@@ -14,13 +13,50 @@ export const getTaskListAction = () => async dispatch => {
   }
 }
 
+export const updateTaskStatusAction = (taskId, status) => async dispatch => {
+  try {
+    dispatch(setIsLoading(true));
+    await updateTaskStatus(taskId, status);
+    dispatch(setIsLoading(false));
+    dispatch(getTaskListAction());
+  } catch(error) {
+    dispatch(setIsLoading(false));
+  }
+}
+
+export const deleteTaskAction = (taskId) => async dispatch => {
+  try {
+    dispatch(setIsLoading(true));
+    await deleteTask(taskId);
+    dispatch(setIsLoading(false));
+    dispatch(getTaskListAction());
+  } catch (error) {
+    dispatch(setIsLoading(false));
+  }
+}
+
+export const addTaskAction = (task) => async dispatch => {
+  try {
+    dispatch(setIsLoading(true))
+    await addTask(task);
+    dispatch(setIsLoading(false))
+    dispatch(setShowList(true))
+    dispatch(setShowForm(false))
+    dispatch(getTaskListAction())
+  } catch (error) {
+    dispatch(setIsLoading(false))
+  }
+}
+
 export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
       isLoading: false,
       list: [],
       selectedTodoList: {},
-      error: ""
+      error: "",
+      showList: true,
+      showForm: false
     },
     reducers: {
       getTaskListSuccess: (state, action) => {
@@ -31,9 +67,15 @@ export const todoSlice = createSlice({
       },
       setIsLoading: (state, action) => {
         state.isLoading =action.payload;
+      },
+      setShowList: (state, action) => {
+        state.showList = action.payload;
+      },
+      setShowForm: (state, action) => {
+        state.showForm = action.payload;
       }
     }
 });
 
-export const { getTaskListSuccess, getTaskListError, setIsLoading } = todoSlice.actions
+export const { getTaskListSuccess, getTaskListError, setIsLoading, setShowForm, setShowList } = todoSlice.actions
 export default todoSlice.reducer;

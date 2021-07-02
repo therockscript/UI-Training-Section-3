@@ -1,0 +1,23 @@
+Component: Register
+Add component in App.js
+
+Name, Email, Password, Age
+
+Slice : AuthSlice
+Add slice to store
+
+Action : registerAction(form data)
+
+API register(form data)
+
+Login 
+
+
+
+API -> AddTask function (POST)
+Slice -> addTaskAction (State update)
+Component -> dispatch
+
+
+Adding button in list item
+bind onclick method to button

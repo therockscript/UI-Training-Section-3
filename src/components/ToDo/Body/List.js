@@ -12,9 +12,12 @@ function List() {
     const TaskList =  useSelector(state => state.todo.list);
     const TaskListError = useSelector( state => state.todo.error);
     const isTaskLoading = useSelector(state => state.todo.isLoading);
-    const [showAddForm,setShowAddForm]=useState(false);
-    const [showAddButton, setShowAddButton] =useState(true);
-    const [showList, setShowList] = useState(true);
+    const showList = useSelector(state => state.todo.showList);
+    const showForm = useSelector(state => state.todo.showForm);
+
+    // const [showAddForm,setShowAddForm]=useState(false);
+    // const [showAddButton, setShowAddButton] =useState(true);
+    // const [showList, setShowList] = useState(true);
 
     useEffect(function() {
         console.log("List component use effect");
@@ -22,22 +25,22 @@ function List() {
     }, [])
 
     function onAddForm(e){
-       setShowAddForm(true);
-       setShowAddButton(false);
-       setShowList(false);
-      
+    //    setShowAddForm(true);
+    //    setShowAddButton(false);
+    //    setShowList(false);
      }   
 
 
-    return   <div>
-    <AddForm onAddForm={onAddForm}></AddForm>
+    return <div>
+        {showForm && <AddForm onAddForm={onAddForm}></AddForm>}
+
         {TaskListError && 
             <h1>{TaskListError}</h1>
         }
         {isTaskLoading &&
             <CircularProgress />
         }
-        {TaskList &&
+        {showList && TaskList &&
            TaskList.map((task) => {
                return <ListItem task={task} key={task.title}></ListItem>
            })
