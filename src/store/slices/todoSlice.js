@@ -56,7 +56,8 @@ export const todoSlice = createSlice({
       selectedTodoList: {},
       error: "",
       showList: true,
-      showForm: false
+      showForm: false,
+      showRegisterForm: false
     },
     reducers: {
       getTaskListSuccess: (state, action) => {
@@ -73,9 +74,12 @@ export const todoSlice = createSlice({
       },
       setShowForm: (state, action) => {
         state.showForm = action.payload;
+      },
+      setshowRegisterForm: (state, action) => {
+        state.showRegisterForm = action.payload;
       }
     }
 });
 
-export const { getTaskListSuccess, getTaskListError, setIsLoading, setShowForm, setShowList } = todoSlice.actions
+export const { getTaskListSuccess, getTaskListError, setIsLoading, setShowForm, setShowList, setShowRegisterForm } = todoSlice.actions
 export default todoSlice.reducer;

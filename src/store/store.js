@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import todoSlice from './slices/todoSlice';
+import AuthSlice from './slices/AuthSlice';
+
 
 const middlewares = [];
 
@@ -12,7 +14,9 @@ if (process.env.NODE_ENV === 'development') {
 
 const store = configureStore({
   reducer: {
-    'todo': todoSlice
+    'todo': todoSlice,
+    'Auth': AuthSlice
+
     // 'meeting': meetingSlice
   },
   middleware: getDefaultMiddleware =>

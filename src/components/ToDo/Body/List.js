@@ -5,6 +5,7 @@ import { getTaskListAction }  from '../../../store/slices/todoSlice';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddForm from './AddForm';
 import {useState} from 'react';
+import AddRegister from './AddRegisterForm'
 
 function List() {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function List() {
     const isTaskLoading = useSelector(state => state.todo.isLoading);
     const showList = useSelector(state => state.todo.showList);
     const showForm = useSelector(state => state.todo.showForm);
+    const showRegisterForm = useSelector(state => state.Auth.showRegisterForm);
 
     // const [showAddForm,setShowAddForm]=useState(false);
     // const [showAddButton, setShowAddButton] =useState(true);
@@ -33,6 +35,8 @@ function List() {
 
     return <div>
         {showForm && <AddForm onAddForm={onAddForm}></AddForm>}
+
+          {showRegisterForm && <AddRegister></AddRegister>}
 
         {TaskListError && 
             <h1>{TaskListError}</h1>

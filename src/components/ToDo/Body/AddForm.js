@@ -9,12 +9,14 @@ function AddForm() {
   const dispatch = useDispatch();
 
   function onSaveTask(e) {
+    console.log(e)
     e.stopPropagation();
     e.preventDefault();
     
     const task = {
       description: e.target.description.value
     }
+    console.log("task value=>", task)
     dispatch(addTaskAction(task))
   }
 
@@ -25,9 +27,9 @@ function AddForm() {
           <TextFields
             id="outlined-full-width"
             name="description"
-            label="Label"
-            style={{ margin: 8 }}
-            placeholder="Placeholder"
+            label="Description"
+            style={{ marginLeft: 40 }}
+            placeholder="Add Task Here"
             fullWidth
             margin="normal"
             InputLabelProps={{
