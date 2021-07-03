@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import { deleteTaskAction, updateTaskStatusAction } from '../../../store/slices/todoSlice';
-
+import '../../../App.css'
 const useStyles = makeStyles((theme) => ({
     root: {
       padding: "20px",
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop:"0.4rem",
         marginRight: "4px"
     }
+   
   }));
 
 function ListItem(props) {
@@ -47,8 +48,9 @@ function ListItem(props) {
     <Paper className={classes.root} variant="outlined" elevation={3}  >
 
         <Grid container>
-            <Grid item sm={1}>
+            <Grid item sm={1} className="checkbox">
                 <Checkbox
+                    type="Checkbox"
                     checked={props.task.completed}
                     onClick={onCheckboxClick}
                     onChange={handleRadioChange}
