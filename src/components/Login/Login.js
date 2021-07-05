@@ -8,11 +8,15 @@ import { useDispatch } from "react-redux";
 import { loginAction } from "../../store/slices/AuthSlice";
 import { useHistory } from "react-router-dom";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: "20px",
+    border: "2px solid lightblue",
+    paddingTop : "25px",
+    paddingBottom : "25px",
+    width : "300px",
+    marginLeft :"470px",
     "& input": {
       width: "100%",
     },
@@ -36,6 +40,10 @@ function Login() {
     };
     console.log("input value=>", Forminputs);
     dispatch(loginAction(Forminputs, history));
+  }
+
+  const handleRoute = () =>{ 
+    history.push("/register");
   }
 
   return (
@@ -66,12 +74,16 @@ function Login() {
             <Grid item xs={12}>
               <Button type="submit" variant="contained" color="primary">
                 Login
+              </Button>&nbsp;
+              <Button type="button" variant="contained" color="primary"  onClick={handleRoute}>
+                Create Account
               </Button>
             </Grid>
           </Grid>
         </form>
       </Container>
     </div>
+   
   );
 }
 export default Login;

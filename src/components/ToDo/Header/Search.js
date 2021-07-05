@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux';
 import { setShowList } from '../../../store/slices/todoSlice';
 import {setShowRegisterForm} from '../../../store/slices/AuthSlice';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,18 +20,20 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
+
 function TodoSearch() {
     const styles = useStyles();
     const dispatch = useDispatch();
-
-    function RegisterForm(){
-      dispatch(setShowRegisterForm(true));
-      dispatch(setShowList(false));
-    }
+    const history = useHistory();
+    
+    const handleRoute = () =>{ 
+    history.push("/login");
+  }
 
     return <div className={styles.root}>
 
-    <Button color="Secondary" className={styles.button} onClick={RegisterForm}>Register</Button>
+    <Button color="Secondary" className={styles.button} onClick={handleRoute}>Logout</Button>
 
        <TextField
           id="outlined-password-input"

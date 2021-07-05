@@ -6,12 +6,20 @@ import Container from '@material-ui/core/Container';
 
 import { useDispatch } from "react-redux";
 import { registerTaskAction } from "../store/slices/AuthSlice";
+import { useHistory } from "react-router-dom";
+
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
 	flexGrow: 1,
 	marginTop: "20px",
+	 border: "2px solid lightblue",
+	 marginTop: "20px",
+	 paddingTop : "25px",
+     paddingBottom : "25px",
+     marginLeft :"380px",
+     marginRight :"380px",
 	'& input': {
 		width: '100%'
 	}
@@ -28,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 function AddRegister(){
 	  const classes = useStyles();
 	  const dispatch = useDispatch();
+	  const history = useHistory();
 
 	  function onSaveRegisterForm(e) {
 			console.log(e)
@@ -43,6 +52,11 @@ function AddRegister(){
 		    console.log("input value=>", Forminputs)
                dispatch(registerTaskAction(Forminputs))
   }
+
+  const handleRoute = () =>{ 
+    history.push("/login");
+  }
+  
 
 	return <div>
 		<Container maxWidth="lg">
@@ -63,6 +77,10 @@ function AddRegister(){
 					<Grid item xs={12}>
 		       			<Button type="submit" variant="contained" color="primary">
 				  			Register
+			  			</Button>&nbsp;
+
+			  			<Button type="submit" variant="contained" color="primary" onClick={handleRoute}>
+				  			Login
 			  			</Button>
 					</Grid>
 			  </Grid>

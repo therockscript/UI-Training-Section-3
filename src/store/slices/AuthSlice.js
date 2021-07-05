@@ -9,7 +9,7 @@ export const registerTaskAction = (Forminputs) => async dispatch => {
     await registerUser(Forminputs);
     dispatch(setIsLoading(false))
     dispatch(setShowList(true))
-    dispatch(setShowRegisterForm(false))
+    //dispatch(setShowRegisterForm(false))
   } catch (error) {
     dispatch(showMessageAction(error.message, "error"));
     dispatch(setIsLoading(false))
@@ -24,6 +24,24 @@ export const loginAction = (Forminputs, history) => async dispatch => {
       localStorage.setItem("todo_login_token", response.token);
       updateTokenHeader(response.token);
       history.push("/todo");
+    }
+    dispatch(setIsLoading(false))
+    dispatch(setShowList(true))
+    debugger;
+  } catch (error) {
+    dispatch(showMessageAction(error.message, "error"));
+    dispatch(setIsLoading(false))
+  }
+}
+
+export const logoutAction = (Forminputs, history) => async dispatch => {
+  try {
+    dispatch(setIsLoading(true))
+    const response = await loginUser(Forminputs);
+    if (response && response.token) {
+      localStorage.setItem("todo_login_token", response.token);
+      updateTokenHeader(response.token);
+      history.push("/login");
     }
     dispatch(setIsLoading(false))
     dispatch(setShowList(true))
