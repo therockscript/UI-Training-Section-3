@@ -5,7 +5,7 @@ import { getTaskListAction }  from '../../../store/slices/todoSlice';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddForm from './AddForm';
 import {useState} from 'react';
-import AddRegister from './AddRegisterForm'
+import AddRegister from '../../AddRegisterForm'
 
 function List() {
     const dispatch = useDispatch();

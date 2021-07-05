@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import  registerUser from '../../api/registerApi';
+import  registerUser, { loginUser } from '../../api/registerApi';
+import { showMessageAction } from './messageSlice';
+import { updateTokenHeader } from '../../api/API';
 
 export const registerTaskAction = (Forminputs) => async dispatch => {
   try {
@@ -9,6 +11,25 @@ export const registerTaskAction = (Forminputs) => async dispatch => {
     dispatch(setShowList(true))
     dispatch(setShowRegisterForm(false))
   } catch (error) {
+    dispatch(showMessageAction(error.message, "error"));
+    dispatch(setIsLoading(false))
+  }
+}
+
+export const loginAction = (Forminputs, history) => async dispatch => {
+  try {
+    dispatch(setIsLoading(true))
+    const response = await loginUser(Forminputs);
+    if (response && response.token) {
+      localStorage.setItem("todo_login_token", response.token);
+      updateTokenHeader(response.token);
+      history.push("/todo");
+    }
+    dispatch(setIsLoading(false))
+    dispatch(setShowList(true))
+    debugger;
+  } catch (error) {
+    dispatch(showMessageAction(error.message, "error"));
     dispatch(setIsLoading(false))
   }
 }

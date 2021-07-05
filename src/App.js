@@ -1,16 +1,17 @@
 
 import './App.css';
-import ToDo from './components/ToDo/ToDo';
+import Message from './components/Message/Message';
 import { Provider } from 'react-redux'
 import store from './store/store';
-import AddRegister from './components/ToDo/Body/AddRegisterForm'
+import Routes from './components/Routes/Routes';
+
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <ToDo />
-         <AddRegister></AddRegister>
+         <Routes></Routes>
+         <Message></Message>
       </div>
     </Provider>
   );

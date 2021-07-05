@@ -5,6 +5,10 @@ const headers = {
     'Content-Type': 'application/json'
 }
 
+const updateTokenHeader = (token) => {
+    headers.Authorization = `Bearer ${token}`
+}
+
 async function addTask(task) {
     const config = {
         method: 'post',
@@ -59,5 +63,6 @@ export {
     getTaskList,
     addTask,
     deleteTask,
-    updateTaskStatus
+    updateTaskStatus,
+    updateTokenHeader
 }
