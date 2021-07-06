@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 function App() {
 
   useEffect(function() {
+    console.log("App js updateTokenHeader");
     updateTokenHeader()
   }, []);
 
