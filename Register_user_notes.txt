@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------------------
 
-Add register link on login page
-After successful registration navigate to login
-Show user information (email address) on todo screen
-Logout
+Add register link on login page - done
+After successful registration navigate to login - done
+Show user information (email address) on todo screen - done
+Logout - done
 
 ------------------------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import todoSlice from './slices/todoSlice';
-import AuthSlice from './slices/AuthSlice';
+import authSlice from './slices/authSlice';
 import messageSlice from './slices/messageSlice';
 
 
@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'development') {
 const store = configureStore({
   reducer: {
     'todo': todoSlice,
-    'Auth': AuthSlice,
+    'auth': authSlice,
 	'message': messageSlice
     // 'meeting': meetingSlice
   },

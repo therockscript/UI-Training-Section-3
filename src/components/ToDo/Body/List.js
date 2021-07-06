@@ -15,7 +15,7 @@ function List() {
     const isTaskLoading = useSelector(state => state.todo.isLoading);
     const showList = useSelector(state => state.todo.showList);
     const showForm = useSelector(state => state.todo.showForm);
-    const showRegisterForm = useSelector(state => state.Auth.showRegisterForm);
+    const showRegisterForm = useSelector(state => state.auth.showRegisterForm);
 
     // const [showAddForm,setShowAddForm]=useState(false);
     // const [showAddButton, setShowAddButton] =useState(true);

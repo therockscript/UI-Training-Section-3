@@ -2,6 +2,7 @@
 import Login from '../Login/Login';
 import AddRegister from '../AddRegisterForm';
 import Todo from '../ToDo/ToDo';
+import PrivateRoute from './PrivateRoute';
 import {
     BrowserRouter as Router,
     Switch,
@@ -21,9 +22,9 @@ function Routes(props) {
         <Route path="/register">
           <AddRegister />
         </Route>
-        <Route path="/todo">
+        <PrivateRoute path="/todo">
           <Todo />
-        </Route>
+        </PrivateRoute>
         <Route path="/">
           <Login />
         </Route>

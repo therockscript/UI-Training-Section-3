@@ -1,12 +1,17 @@
 import axios from 'axios';
 
 const headers = { 
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRhYzdlNjJkMDc1NDAwMTcyZjgxZGYiLCJpYXQiOjE2MjUwMzI4NjF9.N8Nl6yH2GvHDKSNDnEdzaI34U0ijlErF9dmctv40xnw', 
     'Content-Type': 'application/json'
 }
 
-const updateTokenHeader = (token) => {
-    headers.Authorization = `Bearer ${token}`
+const updateTokenHeader = () => {
+    console.log("updateTokenHeader start");
+    // Add a request interceptor
+    axios.interceptors.request.use(function (config) {
+        const token = localStorage.getItem("todo_login_token");
+        config.headers.Authorization = `Bearer ${token}`;
+        return config;
+    });
 }
 
 async function addTask(task) {
